@@ -21,9 +21,12 @@ public interface StoreDao {
             "profit = #{profit} WHERE id = #{id}")
     boolean modifyStore(Clothes clothes);
 
-    @Select("UPDATE INFO clothes SET number = #{number} WHERE id = #{id}")
-    boolean outStore(@Param("id") String id, @Param("number") long number);
+    @Select("UPDATE clothes SET number = #{number} WHERE id = #{id}")
+    void outStore(@Param("id") String id, @Param("number") long number);
 
     @Select("select * from clothes LIMIT #{start} , #{end}")
     List<Clothes> getClothes(@Param("start") long start, @Param("end") long number);
+
+    @Select("select number FROM clothes where id = #{id}")
+    int clothesNumber(String id);
 }

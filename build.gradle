@@ -31,3 +31,21 @@ dependencies {
     runtime('mysql:mysql-connector-java')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+task cleanSqlmaps(type: Delete) {
+    def files = fileTree("${buildDir}/classes/java", {
+        include "**/*.xml"
+    })
+    delete files
+}
+
+task copySqlmaps(type: Copy, dependsOn: cleanSqlmaps) {
+    from "${projectDir}/src/main/java"
+    include "**/*.xml"
+    into "${buildDir}/classes/java/main"
+    includeEmptyDirs = false
+}
+
+processResources.dependsOn {
+    copySqlmaps
+}

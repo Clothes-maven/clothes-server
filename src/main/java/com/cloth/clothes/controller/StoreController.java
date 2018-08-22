@@ -38,7 +38,7 @@ public class StoreController extends BaseController {
         }
     }
 
-    @GetMapping("/outStore")
+ /*   @GetMapping("/outStore")
     @ResponseBody
     public BaseResponse outStore(@RequestParam String id, @RequestParam long number) {
         if (mStoreDao.outStore(id, number)) {
@@ -46,7 +46,7 @@ public class StoreController extends BaseController {
         } else {
             return faild("");
         }
-    }
+    }*/
 
     @GetMapping("/getClothes")
     @ResponseBody
