@@ -16,7 +16,7 @@ public interface SellOutDao {
     @Select("select * from user where id = #{id}")
     User findUserById(String id);
 
-    @Select("SELECT * FROM sellout WHERE createDate >= #{startTime} AND createDate <= #{endTime}")
+    @Select("SELECT * FROM sellout WHERE createDate >= #{startTime} AND createDate <= #{endTime} AND number > 0")
     @Results({
             @Result(property = "subId", column = "subid"),
             @Result(property = "sell", column = "sell"),
