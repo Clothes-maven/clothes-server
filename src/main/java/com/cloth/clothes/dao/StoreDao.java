@@ -24,7 +24,7 @@ public interface StoreDao {
     @Select("UPDATE clothes SET number = #{number} WHERE id = #{id}")
     void outStore(@Param("id") String id, @Param("number") long number);
 
-    @Select("select * from clothes LIMIT #{start} , #{end}")
+    @Select("select * from clothes WHERE number >0 LIMIT #{start} , #{end}")
     List<Clothes> getClothes(@Param("start") long start, @Param("end") long number);
 
     @Select("select number FROM clothes where id = #{id}")
