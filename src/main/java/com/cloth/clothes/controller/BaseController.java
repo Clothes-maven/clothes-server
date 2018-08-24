@@ -20,6 +20,7 @@ public class BaseController {
         BaseResponse<T> baseResponse = new BaseResponse<>();
         baseResponse.setContent(t);
         baseResponse.setCode(1);
+        baseResponse.setMsg("成功！");
         baseResponse.setStatus("SUCCESS");
         return baseResponse;
     }

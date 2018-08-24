@@ -3,143 +3,133 @@ package com.cloth.clothes.bean;
 
 public class Clothes {
 
-  private long id;
-  private String name;
-  private String feature;//属性
-  private String brand;//品牌
-  private String type;//类型（男装，女装）
-  private double size;//尺码
-  private String texture;//材质
-  private String couar;//领型
-  private String sleeve;//袖长
-  private String batch;//批次
-  private double cost;//进价
-  private long number;//数量
-  private double profit;//单品利润
-  private String clothesUrl;//图片地址
+    private long id;
+    private String name;
+    private String feature;//属性
+    private String brand;//品牌
+    private String type;//类型（男装，女装）
+    private String texture;//材质
+    private String couar;//领型
+    private String sleeve;//袖长
+    private String batch;//批次
+    private double cost;//进价
+    private String clothesUrl;//图片地址
+    private String supplier;//供应商
+    private String pay;//是否支付，1是支付，0未支付
 
 
-  public long getId() {
-    return id;
-  }
+    public long getId() {
+        return id;
+    }
 
-  public void setId(long id) {
-    this.id = id;
-  }
-
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setId(long id) {
+        this.id = id;
+    }
 
 
-  public String getFeature() {
-    return feature;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setFeature(String feature) {
-    this.feature = feature;
-  }
-
-
-  public String getBrand() {
-    return brand;
-  }
-
-  public void setBrand(String brand) {
-    this.brand = brand;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
 
-  public String getType() {
-    return type;
-  }
+    public String getFeature() {
+        return feature;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public double getSize() {
-    return size;
-  }
-
-  public void setSize(double size) {
-    this.size = size;
-  }
+    public void setFeature(String feature) {
+        this.feature = feature;
+    }
 
 
-  public String getTexture() {
-    return texture;
-  }
+    public String getBrand() {
+        return brand;
+    }
 
-  public void setTexture(String texture) {
-    this.texture = texture;
-  }
-
-
-  public String getCouar() {
-    return couar;
-  }
-
-  public void setCouar(String couar) {
-    this.couar = couar;
-  }
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 
 
-  public String getSleeve() {
-    return sleeve;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public void setSleeve(String sleeve) {
-    this.sleeve = sleeve;
-  }
-
-
-  public String getBatch() {
-    return batch;
-  }
-
-  public void setBatch(String batch) {
-    this.batch = batch;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
 
-  public double getCost() {
-    return cost;
-  }
+    public String getTexture() {
+        return texture;
+    }
 
-  public void setCost(double cost) {
-    this.cost = cost;
-  }
-
-
-  public long getNumber() {
-    return number;
-  }
-
-  public void setNumber(long number) {
-    this.number = number;
-  }
+    public void setTexture(String texture) {
+        this.texture = texture;
+    }
 
 
-  public double getProfit() {
-    return profit;
-  }
+    public String getCouar() {
+        return couar;
+    }
 
-  public void setProfit(double profit) {
-    this.profit = profit;
-  }
+    public void setCouar(String couar) {
+        this.couar = couar;
+    }
 
-  public String getClothesUrl() {
-    return clothesUrl;
-  }
 
-  public void setClothesUrl(String clothesUrl) {
-    this.clothesUrl = clothesUrl;
-  }
+    public String getSleeve() {
+        return sleeve;
+    }
+
+    public void setSleeve(String sleeve) {
+        this.sleeve = sleeve;
+    }
+
+
+    public String getBatch() {
+        return batch;
+    }
+
+    public void setBatch(String batch) {
+        this.batch = batch;
+    }
+
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+
+    public String getClothesUrl() {
+        return clothesUrl;
+    }
+
+    public void setClothesUrl(String clothesUrl) {
+        this.clothesUrl = clothesUrl;
+    }
+
+
+    public String getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(String supplier) {
+        this.supplier = supplier;
+    }
+
+    public String getPay() {
+        return pay;
+    }
+
+    public void setPay(String pay) {
+        this.pay = pay;
+    }
 }

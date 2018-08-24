@@ -1,9 +1,6 @@
 package com.cloth.clothes.controller;
 
-import com.cloth.clothes.bean.BaseResponse;
-import com.cloth.clothes.bean.Clothes;
-import com.cloth.clothes.bean.ClothesList;
-import com.cloth.clothes.bean.User;
+import com.cloth.clothes.bean.*;
 import com.cloth.clothes.dao.StoreDao;
 import com.cloth.clothes.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,19 +35,11 @@ public class StoreController extends BaseController {
         }
     }
 
- /*   @GetMapping("/outStore")
-    @ResponseBody
-    public BaseResponse outStore(@RequestParam String id, @RequestParam long number) {
-        if (mStoreDao.outStore(id, number)) {
-            return success(null);
-        } else {
-            return faild("");
-        }
-    }*/
-
     @GetMapping("/getClothes")
     @ResponseBody
-    public BaseResponse<ClothesList> getClothes(@RequestParam String uid, @RequestParam long number, @RequestParam long pager) {
+    public BaseResponse<ClothesList> getClothes(@RequestParam(required = false) String uid,
+                                                @RequestParam(required = false) long number,
+                                                @RequestParam(required = false) long pager) {
         User user = mUserDao.findUserById(uid);
         long start = (pager - 1) * number;
         List<Clothes> clothes = mStoreDao.getClothes(start, start + number);
@@ -58,7 +47,6 @@ public class StoreController extends BaseController {
         if (user.getRole() != 1) {
             result = clothes.stream()
                     .map(clothes1 -> {
-                        clothes1.setProfit(0);
                         clothes1.setCost(0);
                         return clothes1;
                     })
@@ -67,5 +55,14 @@ public class StoreController extends BaseController {
         ClothesList clothesList = new ClothesList();
         clothesList.setClothes(result);
         return success(clothesList);
+    }
+
+    @GetMapping("/getClothDetails")
+    @ResponseBody
+    public BaseResponse<ClothdetailList> getClothDetails(String sid, @RequestParam(required = false) String cid) {
+        ClothdetailList clothdetailList = new ClothdetailList();
+        List<Clothdetail> mClothdetails = mStoreDao.findClothdetail(sid, cid);
+        clothdetailList.setClothdetails(mClothdetails);
+        return success(clothdetailList);
     }
 }

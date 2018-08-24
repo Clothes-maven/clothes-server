@@ -6,7 +6,7 @@ public class User {
   private String pass;
   private String qq;
   private String phone;
-  private String address;
+  private Store address;
   private String sex;
   private String name;
   private long id;
@@ -40,14 +40,13 @@ public class User {
   }
 
 
-  public String getAddress() {
+  public Store getAddress() {
     return address;
   }
 
-  public void setAddress(String address) {
+  public void setAddress(Store address) {
     this.address = address;
   }
-
 
   public String getSex() {
     return sex;
