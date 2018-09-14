@@ -9,7 +9,7 @@ public class Clothdetail {
     private Store store;
     private long number;//数量
     private Clothes clothe;
-
+    private int isStopSell;
 
     public long getId() {
         return id;
@@ -59,5 +59,13 @@ public class Clothdetail {
 
     public void setClothe(Clothes clothe) {
         this.clothe = clothe;
+    }
+
+    public int getIsStopSell() {
+        return isStopSell;
+    }
+
+    public void setIsStopSell(int isStopSell) {
+        this.isStopSell = isStopSell;
     }
 }

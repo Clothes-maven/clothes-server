@@ -37,9 +37,9 @@ public class StoreController extends BaseController {
 
     @GetMapping("/getClothes")
     @ResponseBody
-    public BaseResponse<ClothesList> getClothes(@RequestParam(required = false) String uid,
-                                                @RequestParam(required = false) long number,
-                                                @RequestParam(required = false) long pager) {
+    public BaseResponse<ClothesList> getClothes(@RequestParam String uid,
+                                                @RequestParam long number,
+                                                @RequestParam long pager) {
         User user = mUserDao.findUserById(uid);
         long start = (pager - 1) * number;
         List<Clothes> clothes = mStoreDao.getClothes(start, start + number);
@@ -59,10 +59,26 @@ public class StoreController extends BaseController {
 
     @GetMapping("/getClothDetails")
     @ResponseBody
-    public BaseResponse<ClothdetailList> getClothDetails(String sid, @RequestParam(required = false) String cid) {
+    public BaseResponse<ClothdetailList> getClothDetails(@RequestParam(required = false) String sid, @RequestParam String cid) {
         ClothdetailList clothdetailList = new ClothdetailList();
         List<Clothdetail> mClothdetails = mStoreDao.findClothdetail(sid, cid);
         clothdetailList.setClothdetails(mClothdetails);
         return success(clothdetailList);
+    }
+
+    @GetMapping("/getStores")
+    @ResponseBody
+    public BaseResponse<StoreList> getStores() {
+        StoreList storeList = new StoreList();
+        List<Store> stores = mStoreDao.getStores();
+        storeList.setStores(stores);
+        return success(storeList);
+    }
+
+    @GetMapping("/stopOrStartSell")
+    @ResponseBody
+    public BaseResponse stopOrStartSell(@RequestParam String cid, @RequestParam int isStopSell) {
+        mStoreDao.updateSell(isStopSell == 0 ? 0 : 1, cid);
+        return success(null);
     }
 }
