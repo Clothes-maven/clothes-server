@@ -47,7 +47,7 @@ public class SellOutController extends BaseController {
             return faild("用户不存在！");
         }
         mStoreDao.outStore(request.getClothesId(), stock - request.getNumber());
-        mSellOutDao.insterSellOut(request.getClothesId(), request.getSell(), request.getUserId(), sdf.format(d));
+        mSellOutDao.insterSellOut(request.getClothesId(), request.getSell(), request.getUserId(), request.getNumber(), sdf.format(d));
         return success(null);
     }
 }

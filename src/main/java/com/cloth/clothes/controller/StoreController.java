@@ -81,4 +81,22 @@ public class StoreController extends BaseController {
         mStoreDao.updateSell(isStopSell == 0 ? 0 : 1, cid);
         return success(null);
     }
+
+    @GetMapping("/deleteClothDetail")
+    @ResponseBody
+    public BaseResponse deleteClothDetail(@RequestParam String cid) {
+        mStoreDao.deleteDetails(cid);
+        return success(null);
+    }
+
+    @PostMapping("/addClothDetail")
+    @ResponseBody
+    public BaseResponse addClothDetail(@RequestBody ClothDetailsRequest clothDetailsRequest) {
+        try {
+            mStoreDao.insertDetails(clothDetailsRequest);
+            return success(null);
+        } catch (Exception e) {
+            return faild(e.getMessage());
+        }
+    }
 }

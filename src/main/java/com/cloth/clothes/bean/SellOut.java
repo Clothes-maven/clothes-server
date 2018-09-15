@@ -4,7 +4,7 @@ package com.cloth.clothes.bean;
 public class SellOut {
 
     private long subId;
-    private Clothes clothes;
+    private Clothdetail clothdetail;
     private String sell;
     private User user;
     private String createDate;
@@ -17,12 +17,12 @@ public class SellOut {
         this.subId = subId;
     }
 
-    public Clothes getClothes() {
-        return clothes;
+    public Clothdetail getClothdetail() {
+        return clothdetail;
     }
 
-    public void setClothes(Clothes clothes) {
-        this.clothes = clothes;
+    public void setClothdetail(Clothdetail clothdetail) {
+        this.clothdetail = clothdetail;
     }
 
     public String getSell() {
